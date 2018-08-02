@@ -1,0 +1,43 @@
+  1.下载Git工具并安装
+  2.打开Git bash，依次输入：
+    $ git config --global user.name "yzqtszp"
+    $ git config --global user.email "yn1024email@gmail.com"
+  3.设置SSH key
+     生成一个新的SSH Key
+    1）Open Git Bash.
+
+    2）Paste the text below, substituting in your GitHub email address.
+
+       $ ssh-keygen -t rsa -b 4096 -C "yn1024email@gmail.com"
+     This creates a new ssh key, using the provided email as a label.
+       Generating public/private rsa key pair.
+
+     3）When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+       Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]
+ 
+     4）At the prompt, type a secure passphrase. For more information, see "Working with SSH key passphrases".
+       Enter passphrase (empty for no passphrase): [Type a passphrase]
+       Enter same passphrase again: [Type passphrase again]
+     
+     Adding your SSH key to the ssh-agent
+     1）Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_rsa in the command with the name of your private key file.
+
+       $ ssh-add ~/.ssh/id_rsa
+     
+     2）Copy the SSH key to your clipboard（将SSH key复制到剪切板）.
+
+     If your SSH key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
+
+       $ clip < ~/.ssh/id_rsa.pub
+       # Copies the contents of the id_rsa.pub file to your clipboard
+       Tip: If clip isn't working, you can locate the hidden .ssh folder, open the file in your favorite text editor, and copy it to your clipboard.
+   4.添加到Github帐号setting里。
+   5.上传本地文件
+     1）在Github上新建一个要保存文件的库，或使用原来已有的库。
+     2）新建任意一个文件夹OOXX，打开Gitbash  cd命令进入该文件夹，然后执行：
+       $ git clone http://github.com/yzqtszp/DKFH
+     3）将要上传的文件放到刚克隆的库文件夹下，并依次执行：
+       $ git add .                //上传文件夹下所有文件
+       $ git commit -m "first_commit"
+       $ git push
+       
